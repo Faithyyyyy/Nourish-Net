@@ -1,5 +1,7 @@
+"use client";
 import Sidebar from "@/components/Sidebar";
 import PaymentSidebar from "@/components/PaymentSidebar";
+import AllDishes from "../../components/AllDishes";
 export default function Home() {
   return (
     <div>
@@ -35,8 +37,9 @@ export default function Home() {
         {/* CHOOSE DISHES SECTIONS */}
         <div className=" mt-10">
           <div>
-            <h3>Choose Dishes</h3>
+            <h3 className="text-white">Choose Dishes</h3>
           </div>
+          <AllDishes />
         </div>
       </section>
       <PaymentSidebar />
