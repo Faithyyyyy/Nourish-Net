@@ -2,11 +2,12 @@
 import Sidebar from "@/components/Sidebar";
 import PaymentSidebar from "@/components/PaymentSidebar";
 import AllDishes from "../../components/AllDishes";
+
 export default function Home() {
   return (
     <div>
       <Sidebar />
-      <section className="bg-darkBg1 lg:ml-[80px] lg:mr-[409px] px-6 pt-6 h-[20000px] font-barlow">
+      <section className="bg-darkBg1 lg:ml-[184px]  px-6 pt-6 h-[20000px] font-barlow">
         <div className="flex justify-between items-center">
           <div className="text-white ">
             <h2 className="font-barlow font-semibold text-2xl">Jaegar Resto</h2>
@@ -42,7 +43,7 @@ export default function Home() {
           <AllDishes />
         </div>
       </section>
-      <PaymentSidebar />
+      {/* <PaymentSidebar /> */}
     </div>
   );
 }

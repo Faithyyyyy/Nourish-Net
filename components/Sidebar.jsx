@@ -5,7 +5,7 @@ function Sidebar() {
   const router = useRouter();
   const pathname = usePathname();
   return (
-    <aside className="pl-3 hidden lg:block w-20 fixed h-full bg-darkBg2  top-0 left-0 pt-14">
+    <aside className="pl-3 hidden lg:block w-[184px] fixed h-full bg-darkBg2  top-0 left-0 pt-14">
       <div className="mt-10">
         {/* home */}
         <div className="h-20 mb-5">
@@ -15,6 +15,7 @@ function Sidebar() {
               pathname == "/Home" ? "bg-darkBg1" : ""
             } flex items-center place-content-center gap-5 cursor-pointer py-3  rounded-l-lg  `}
           >
+            <p className="text-white font-barlow text-base">Home</p>
             <div
               className={`${
                 pathname == "/Home" ? "activeSideNav" : ""

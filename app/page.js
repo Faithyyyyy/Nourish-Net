@@ -25,6 +25,7 @@ export default function Home() {
               className="object-contain hidden md:block  absolute z-0 -top-16 -right-16"
               width={136}
               height={176}
+              priority={true}
             />
           </div>
           <p className="text-[#909090] lg:leading-7 text-sm sm:text-base mt-6 lg:text-[20px] max-w-[568px]">

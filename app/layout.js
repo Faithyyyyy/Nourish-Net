@@ -13,9 +13,6 @@ export default function RootLayout({ children }) {
   const showSideBar = pathname === "/" ? false : true;
   return (
     <>
-      <head>
-        <link rel="shortcut icon" href="/assets/logo.png" />
-      </head>
       <html lang="en">
         <body>
           {showSideBar && <Sidebar />}
