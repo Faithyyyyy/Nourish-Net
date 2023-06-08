@@ -29,6 +29,10 @@ a {
   grid-column-gap: 26px;
   grid-row-gap: 98px;
 }
+.select1 {
+  padding: 8px 22px 8px 16px;
+}
+
 .dropdown {
   @apply absolute z-50 right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
 }

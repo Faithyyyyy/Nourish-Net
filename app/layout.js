@@ -2,6 +2,7 @@
 import "./globals.css";
 import { usePathname } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
+import { Providers } from "./GlobalRedux/provider";
 
 // export const metadata = {
 //   title: "Foo",
@@ -15,8 +16,10 @@ export default function RootLayout({ children }) {
     <>
       <html lang="en">
         <body>
-          {showSideBar && <Sidebar />}
-          {children}
+          <Providers>
+            {showSideBar && <Sidebar />}
+            {children}
+          </Providers>
         </body>
       </html>
     </>

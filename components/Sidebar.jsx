@@ -15,7 +15,6 @@ function Sidebar() {
               pathname == "/Home" ? "bg-darkBg1" : ""
             } flex items-center place-content-center gap-5 cursor-pointer py-3  rounded-l-lg  `}
           >
-            <p className="text-white font-barlow text-base">Home</p>
             <div
               className={`${
                 pathname == "/Home" ? "activeSideNav" : ""
@@ -38,6 +37,7 @@ function Sidebar() {
                 />
               </svg>
             </div>
+            <p className="text-white font-barlow text-base">Home</p>
           </Link>
         </div>
         {/* Dashboard/Profile */}

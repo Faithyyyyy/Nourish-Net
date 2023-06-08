@@ -2,8 +2,18 @@
 import Sidebar from "@/components/Sidebar";
 import PaymentSidebar from "@/components/PaymentSidebar";
 import AllDishes from "../../components/AllDishes";
+import getFoodCategories from "@/api/getFoodCategories";
+import { setQueriedMeal } from "../GlobalRedux/Features/mealSlice";
+import { useDispatch } from "react-redux";
+import fetchCategories from "@/components/fetchingFoodCategories";
 
-export default function Home() {
+export default async function Home() {
+  const foodCategories = await getFoodCategories();
+  // const dispatch = useDispatch();
+  const handleChange = (e) => {
+    console.log(e.target.value);
+    // dispatch(setQueriedMeal(e.target.value));
+  };
   return (
     <div>
       <Sidebar />
@@ -13,7 +23,7 @@ export default function Home() {
             <h2 className="font-barlow font-semibold text-2xl">Jaegar Resto</h2>
             <p className="font-thin">Tuesday, 2 Feb 2021</p>
           </div>
-          <div className="relative hidden md:block">
+          {/* <div className="relative hidden md:block">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -33,12 +43,32 @@ export default function Home() {
               className="bg-[#2D303E] border border-[#393C49] pl-10 rounded-md w-[250px] h-[48px] text-white font-barlow outline-none"
               placeholder="Search for food, coffe, etc.."
             />
-          </div>
+          </div> */}
         </div>
         {/* CHOOSE DISHES SECTIONS */}
-        <div className=" mt-10">
-          <div>
+        <div className=" mt-10 ">
+          <div className="flex justify-between mb-24">
             <h3 className="text-white">Choose Dishes</h3>
+            <div>
+              <select
+                name="Filter by category"
+                id="category"
+                className="bg-darkBg2 text-white outline-none focus:outline-none p-4 rounded select1"
+                onChange={(e) => handleChange(e)}
+              >
+                <option value="volvo">Filter by category</option>
+                {foodCategories?.categories.map((category) => {
+                  return (
+                    <option
+                      value={category.strCategory}
+                      key={category.idCategory}
+                    >
+                      {category.strCategory}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </div>
           <AllDishes />
         </div>
