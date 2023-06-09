@@ -6,7 +6,7 @@ const AllDishes = async () => {
   console.log(data);
   return (
     <div className="mt-16 meals-container">
-      {data.meals.map((d) => {
+      {data?.meals.map((d) => {
         return (
           <div
             key={d.idMeal}

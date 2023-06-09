@@ -4,16 +4,19 @@ import PaymentSidebar from "@/components/PaymentSidebar";
 import AllDishes from "../../components/AllDishes";
 import getFoodCategories from "@/api/getFoodCategories";
 import { setQueriedMeal } from "../GlobalRedux/Features/mealSlice";
-import { useDispatch } from "react-redux";
-import fetchCategories from "@/components/fetchingFoodCategories";
+import { useDispatch, useSelector } from "react-redux";
+import SelectCategory from "@/components/SelectCategory";
 
-export default async function Home() {
-  const foodCategories = await getFoodCategories();
-  // const dispatch = useDispatch();
+export default function Home() {
+  const { queriedMeal } = useSelector((store) => {
+    return store.meals;
+  });
+  const dispatch = useDispatch();
   const handleChange = (e) => {
     console.log(e.target.value);
-    // dispatch(setQueriedMeal(e.target.value));
+    dispatch(setQueriedMeal(e.target.value));
   };
+
   return (
     <div>
       <Sidebar />
@@ -50,24 +53,7 @@ export default async function Home() {
           <div className="flex justify-between mb-24">
             <h3 className="text-white">Choose Dishes</h3>
             <div>
-              <select
-                name="Filter by category"
-                id="category"
-                className="bg-darkBg2 text-white outline-none focus:outline-none p-4 rounded select1"
-                onChange={(e) => handleChange(e)}
-              >
-                <option value="volvo">Filter by category</option>
-                {foodCategories?.categories.map((category) => {
-                  return (
-                    <option
-                      value={category.strCategory}
-                      key={category.idCategory}
-                    >
-                      {category.strCategory}
-                    </option>
-                  );
-                })}
-              </select>
+              <SelectCategory handleChange={handleChange} />
             </div>
           </div>
           <AllDishes />

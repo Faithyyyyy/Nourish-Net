@@ -1,4 +1,3 @@
-// import setupAnalyticsService from "../l";
 const getFoodData = async () => {
   try {
     const res = await fetch(
