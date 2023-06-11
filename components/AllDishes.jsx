@@ -1,11 +1,12 @@
 import Image from "next/image";
 import getFoodData from "@/api/getFoodData";
+import DynamiCategory from "./DynamiCategory";
 
-const AllDishes = async () => {
+const AllDishes = async ({ isCategory }) => {
   const data = await getFoodData();
-  console.log(data);
   return (
     <div className="mt-16 meals-container">
+      {/* <DynamiCategory /> */}
       {data?.meals.map((d) => {
         return (
           <div

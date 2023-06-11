@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   queriedMeal: "",
+  isCategory: false,
 };
 const mealSlice = createSlice({
   name: "meal",
@@ -11,8 +12,11 @@ const mealSlice = createSlice({
     setQueriedMeal: (state, action) => {
       state.queriedMeal = action.payload;
     },
+    setIsCategory: (state, action) => {
+      state.isCategory = action.payload;
+    },
   },
 });
 
-export const { setQueriedMeal } = mealSlice.actions;
+export const { setQueriedMeal, setIsCategory } = mealSlice.actions;
 export default mealSlice.reducer;

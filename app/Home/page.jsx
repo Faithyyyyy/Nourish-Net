@@ -2,8 +2,10 @@
 import Sidebar from "@/components/Sidebar";
 import PaymentSidebar from "@/components/PaymentSidebar";
 import AllDishes from "../../components/AllDishes";
-import getFoodCategories from "@/api/getFoodCategories";
-import { setQueriedMeal } from "../GlobalRedux/Features/mealSlice";
+import {
+  setQueriedMeal,
+  setIsCategory,
+} from "../GlobalRedux/Features/mealSlice";
 import { useDispatch, useSelector } from "react-redux";
 import SelectCategory from "@/components/SelectCategory";
 
@@ -12,11 +14,13 @@ export default function Home() {
     return store.meals;
   });
   const dispatch = useDispatch();
+  let isCategory = false;
   const handleChange = (e) => {
     console.log(e.target.value);
     dispatch(setQueriedMeal(e.target.value));
+    isCategory = true;
+    console.log(isCategory);
   };
-
   return (
     <div>
       <Sidebar />
@@ -56,7 +60,7 @@ export default function Home() {
               <SelectCategory handleChange={handleChange} />
             </div>
           </div>
-          <AllDishes />
+          <AllDishes isCategory={isCategory} handleChange={handleChange} />
         </div>
       </section>
       {/* <PaymentSidebar /> */}
