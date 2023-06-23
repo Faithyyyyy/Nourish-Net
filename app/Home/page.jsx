@@ -2,24 +2,14 @@
 import Sidebar from "@/components/Sidebar";
 import PaymentSidebar from "@/components/PaymentSidebar";
 import AllDishes from "../../components/AllDishes";
-import {
-  setQueriedMeal,
-  setIsCategory,
-} from "../GlobalRedux/Features/mealSlice";
-import { useDispatch, useSelector } from "react-redux";
 import SelectCategory from "@/components/SelectCategory";
+import { useState } from "react";
 
 export default function Home() {
-  const { queriedMeal } = useSelector((store) => {
-    return store.meals;
-  });
-  const dispatch = useDispatch();
-  let isCategory = false;
+  const [isCategory, setIsCategory] = useState(false);
   const handleChange = (e) => {
+    setIsCategory(true);
     console.log(e.target.value);
-    dispatch(setQueriedMeal(e.target.value));
-    isCategory = true;
-    console.log(isCategory);
   };
   return (
     <div>

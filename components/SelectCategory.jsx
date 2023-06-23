@@ -1,7 +1,6 @@
-import getFoodCategories from "@/api/getFoodCategories";
+import getFoodCategories from "@/lib/getFoodCategories";
 async function SelectCategory({ handleChange }) {
   const foodCategories = await getFoodCategories();
-
   return (
     <select
       name="Filter by category"
